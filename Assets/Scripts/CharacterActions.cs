@@ -50,9 +50,8 @@ public class CharacterActions : MonoBehaviour
             }
             holdTime++;
         }
-
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
-        {
+        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        { 
             holdTouch = false;
             if (holdTime < 5)
             {
