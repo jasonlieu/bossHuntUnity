@@ -9,15 +9,20 @@ public class BossFastAttackMovement : MonoBehaviour
     private Vector2 playerPosition;
     private float currentDelayTime;
     private float totalDelayDuration;
+    private float maxExplosionDuration;
+    private float currentExplosionDuration;
+    private bool exploding;
     void Start()
     {
         currentDelayTime = 0;
         totalDelayDuration = 0.5f;
         speed = 0;
+        maxExplosionDuration = 0.1f;
+        currentExplosionDuration = 0;
+        exploding = false;
         rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.velocity = Vector2.up * speed;
         transform.localScale = new Vector3(0, 0, 0);
-
     }
     void Update()
     {
@@ -33,6 +38,15 @@ public class BossFastAttackMovement : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, playerPosition, speed);
         }
         if (playerPosition.y + 0.05 >= transform.position.y)
+        {
+            exploding = true;
+        }
+        if (exploding)
+        {
+            transform.localScale += new Vector3(0.1f, 0.2f, 0.1f);
+            currentExplosionDuration += Time.deltaTime;
+        }
+        if(currentExplosionDuration > maxExplosionDuration)
         {
             Destroy(this.gameObject);
         }

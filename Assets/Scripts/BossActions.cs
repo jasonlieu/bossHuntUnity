@@ -42,7 +42,7 @@ public class BossActions : MonoBehaviour
             }
             else
             {
-                if (selectAttack < 0.5)
+                if (selectAttack < 0.2)
                 {
                     ShootProjectile();
                 }
