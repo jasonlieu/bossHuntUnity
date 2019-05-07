@@ -7,7 +7,6 @@ public class Hitbox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        print("hi");
     }
 
     // Update is called once per frame
@@ -16,7 +15,7 @@ public class Hitbox : MonoBehaviour
         
     }
 
-    //collision detection
+    //collision detection w/ knock back
     /*void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.name != "fieldForeground") {
@@ -24,6 +23,8 @@ public class Hitbox : MonoBehaviour
             Destroy(col.gameObject);
         }
     }*/
+
+    //collision detection w/o knock back
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.name != "fieldForeground")

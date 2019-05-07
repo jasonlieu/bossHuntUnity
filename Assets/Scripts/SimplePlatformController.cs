@@ -16,26 +16,17 @@ public class SimplePlatformController : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb2d;
 
-    private int testCounter = 0;
-
     // Use this for initialization
     void Awake()
     {
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
+        rb2d.velocity = new Vector2(0.0f, 0.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
-
-        /* uncomment if jump is implemented
-        if (Input.GetButtonDown("Jump") && grounded)
-        {
-            jump = true;
-        }
-        */
     }
 
     void FixedUpdate()
@@ -63,6 +54,8 @@ public class SimplePlatformController : MonoBehaviour
             jump = false;
         }
         */
+
+        rb2d.velocity = new Vector2(0.0f, 0.0f);
     }
 
 

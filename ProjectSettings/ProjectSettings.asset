@@ -605,10 +605,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 2a44158b-16d9-48b4-91bd-4f301de104ee
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: 4
+  organizationId: joeyliao
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
