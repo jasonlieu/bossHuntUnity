@@ -14,17 +14,17 @@ TagManager:
   - UI
   - 
   - 
+  - Background
   - 
   - 
   - 
   - 
+  - Midground
+  - Player
+  - Projectile
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Foreground
   - 
   - 
   - 
@@ -41,4 +41,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Field
+    uniqueID: 3879131493
+    locked: 0
+  - name: Projectile
+    uniqueID: 864681121
+    locked: 0
+  - name: Foreground
+    uniqueID: 2059416937
+    locked: 0
+  - name: Halo
+    uniqueID: 1536437263
     locked: 0

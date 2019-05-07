@@ -17,11 +17,19 @@ public class Hitbox : MonoBehaviour
     }
 
     //collision detection
-    void OnCollisionEnter2D(Collision2D col)
+    /*void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.name != "fieldForeground") {
             print("hit");
             Destroy(col.gameObject);
+        }
+    }*/
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.name != "fieldForeground")
+        {
+            //print("hit");
+            //Destroy(col.gameObject);
         }
     }
 
