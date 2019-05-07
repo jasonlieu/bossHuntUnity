@@ -45,10 +45,7 @@ public class MyJoystick : MonoBehaviour
         {
             rb2d.AddForce(Vector2.right * joystick.Horizontal * moveForce);
         }
-        if (joystick.Horizontal >= -0.1 && joystick.Horizontal <= 0.1)
-        {
-            rb2d.AddForce(Vector2.right * joystick.Horizontal * moveForce * 0);
-        }
+   
 
         if (joystick.Horizontal < 0 && !facingLeft)
             Flip();
@@ -66,6 +63,9 @@ public class MyJoystick : MonoBehaviour
             GameObject shot = Instantiate(arrowSprite, heroTransform.position,
                 Quaternion.Euler(heroTransform.position.x, heroTransform.position.y, angle));
         }
+
+
+        rb2d.velocity = new Vector2(0.0f, 0.0f);
     }
 
 
