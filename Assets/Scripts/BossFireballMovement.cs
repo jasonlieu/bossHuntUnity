@@ -25,7 +25,7 @@ public class BossFireballMovement : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, playerPosition, speed);
-        transform.localScale += new Vector3(0.01f, 0.01f, 0f);
+        //transform.localScale += new Vector3(0.01f, 0.01f, 0f);
         if (playerPosition.y + 0.05 >= transform.position.y)
         {
             exploding = true;
