@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Hitbox : MonoBehaviour
 {
+    private Animator anim;
+    private int hit = 0;
+
     // Start is called before the first frame update
     void Start()
     {
+        anim = GameObject.FindWithTag("Player").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -29,7 +33,12 @@ public class Hitbox : MonoBehaviour
     {
         if (col.gameObject.name != "fieldForeground")
         {
-            //print("hit");
+            hit += 1;
+            print("hit: " + hit);
+            if (hit == 300)
+            {
+                anim.SetTrigger("Die");
+            }
             //Destroy(col.gameObject);
         }
     }
