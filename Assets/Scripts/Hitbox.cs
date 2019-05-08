@@ -37,6 +37,7 @@ public class Hitbox : MonoBehaviour
             print("hit: " + hit);
             if (hit == 300)
             {
+                Destroy(GameObject.Find("Canvas"));
                 anim.SetTrigger("Die");
             }
             //Destroy(col.gameObject);
