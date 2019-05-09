@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 605173421760076062}
   m_Layer: 15
   m_Name: bossFastAttack
-  m_TagString: Untagged
+  m_TagString: bossFastAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
