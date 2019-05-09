@@ -8,6 +8,8 @@ TagManager:
   - healthBar
   - bossFireball
   - bossFastAttack
+  - bossHP
+  - add
   layers:
   - Default
   - TransparentFX
@@ -23,9 +25,9 @@ TagManager:
   - 
   - 
   - Midground
+  - Enemies
   - Player
   - Projectile
-  - 
   - 
   - Foreground
   - 

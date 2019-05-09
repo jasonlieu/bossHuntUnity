@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-
 
 public class MyJoystick : MonoBehaviour
 {
@@ -13,25 +11,22 @@ public class MyJoystick : MonoBehaviour
 
     public float speed;             //Floating point variable to store the player's movement speed.
     public GameObject arrowSprite;
-    private Vector2 bossPosition;
+    //private Vector2 bossPosition;
 
     private Rigidbody2D rb2d;
     private Animator anim;
     private Transform heroTransform;
-    public GameObject hero;
 
     protected Joystick joystick;
     protected JoyButton joybutton;
-    protected Reset resetbtn;
 
     // Start is called before the first frame update
     void Start()
     {
-        bossPosition = GameObject.FindWithTag("bossObject").transform.position;
+        //bossPosition = GameObject.FindWithTag("bossObject").transform.position;
         joystick = FindObjectOfType<Joystick>();
         joybutton = FindObjectOfType<JoyButton>();
-        resetbtn = FindObjectOfType<Reset>();
-        rb2d =GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>();
+        rb2d = GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>();
         heroTransform = GameObject.FindWithTag("Player").transform;
         anim = GameObject.FindWithTag("Player").GetComponent<Animator>();
     }
@@ -60,20 +55,15 @@ public class MyJoystick : MonoBehaviour
         //firing logic
         if (joybutton.Pressed == true)
         {
-            float angle = Vector2.Angle(bossPosition, heroTransform.position);
-            if (heroTransform.position.x > bossPosition.x)
+            /*float angle = Vector2.Angle(bossPosition, heroTransform.position);
+            /if (heroTransform.position.x > bossPosition.x)
             {
                 angle *= -1;
             }
             GameObject shot = Instantiate(arrowSprite, heroTransform.position,
                 Quaternion.Euler(heroTransform.position.x, heroTransform.position.y, angle));
-        }
+        */}
 
-        //reset logic
-        if (resetbtn.Pressed == true)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
 
         rb2d.velocity = new Vector2(0.0f, 0.0f);
     }

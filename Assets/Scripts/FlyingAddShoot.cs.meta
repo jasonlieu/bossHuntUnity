@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 3f52d7c56729741c68e454da2af9c2cc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - bossFastAttack: {fileID: 1742183395362719128, guid: 14974a438aa794f118ac7c65508f0340,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

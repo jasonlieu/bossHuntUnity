@@ -6,9 +6,6 @@ public class Hitbox : MonoBehaviour
 {
     private Animator anim;
     private int hit = 0;
-    private GameObject health;
-    private float healthPercent;
-    private float currentHP;
     private bool dead;
     private float damageTick;
 
@@ -16,20 +13,13 @@ public class Hitbox : MonoBehaviour
     void Start()
     {
         dead = false;
-        currentHP = 100;
-        health = GameObject.FindWithTag("healthBar");
-        healthPercent = health.transform.localScale.x / 100;
         anim = GameObject.FindWithTag("Player").GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentHP < 100 && !dead)
-        {
-            currentHP += 0.2f;
-            health.transform.localScale = new Vector3(currentHP * healthPercent, 0.45f);
-        }
+
     }
 
     //collision detection w/ knock back
@@ -58,13 +48,19 @@ public class Hitbox : MonoBehaviour
         damageTick = 0;
         if (col.gameObject.tag == "bossFastAttack")
         {
-            damageTick = 5;
+            PlayerHPManager.currentHP -= 5;
         }
         else if (col.gameObject.tag == "bossFireball")
         {
-            damageTick = 1;
+            PlayerHPManager.currentHP -= 1;
         }
-        currentHP -= damageTick;
+        else if (col.gameObject.tag == "add")
+        {
+            PlayerHPManager.currentHP -= 20;
+            print("hit by add");
+            KillMeter.currentKills += 1;
+        }
+        /*currentHP -= damageTick;
         if (currentHP < 0)
         {
             currentHP = 0;
@@ -72,11 +68,10 @@ public class Hitbox : MonoBehaviour
         if (currentHP == 0 && !dead)
         {
             dead = true;
-            Destroy(GameObject.Find("Fixed Joystick"));
-            Destroy(GameObject.Find("Joybutton"));
+            Destroy(GameObject.Find("Canvas"));
             anim.SetTrigger("Die");
-        }
-        health.transform.localScale = new Vector3(currentHP * healthPercent, 0.45f);
+            
+        }*/
     }
 
 }
