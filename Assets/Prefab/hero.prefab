@@ -14,11 +14,10 @@ GameObject:
   - component: {fileID: 4665856644905389438}
   - component: {fileID: 4665856644905389409}
   - component: {fileID: 4665856644905389408}
-  - component: {fileID: 4665856644905389410}
   - component: {fileID: -7697681648262269750}
   m_Layer: 14
   m_Name: hero
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,23 +166,6 @@ CircleCollider2D:
   m_Offset: {x: 0.03, y: 0.16}
   serializedVersion: 2
   m_Radius: 0.19
---- !u!114 &4665856644905389410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4665856644905389439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de6622e5b44931b4abf4678c704afa10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  facingLeft: 1
-  jump: 0
-  moveForce: 365
-  maxSpeed: 5
-  jumpForce: 1000
 --- !u!114 &-7697681648262269750
 MonoBehaviour:
   m_ObjectHideFlags: 0

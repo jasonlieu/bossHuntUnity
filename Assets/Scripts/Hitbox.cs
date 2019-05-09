@@ -72,7 +72,8 @@ public class Hitbox : MonoBehaviour
         if (currentHP == 0 && !dead)
         {
             dead = true;
-            Destroy(GameObject.Find("Canvas"));
+            Destroy(GameObject.Find("Fixed Joystick"));
+            Destroy(GameObject.Find("Joybutton"));
             anim.SetTrigger("Die");
         }
         health.transform.localScale = new Vector3(currentHP * healthPercent, 0.45f);

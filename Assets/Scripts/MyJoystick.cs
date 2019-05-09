@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class MyJoystick : MonoBehaviour
 {
@@ -16,9 +18,11 @@ public class MyJoystick : MonoBehaviour
     private Rigidbody2D rb2d;
     private Animator anim;
     private Transform heroTransform;
+    public GameObject hero;
 
     protected Joystick joystick;
     protected JoyButton joybutton;
+    protected Reset resetbtn;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +30,8 @@ public class MyJoystick : MonoBehaviour
         bossPosition = GameObject.FindWithTag("bossObject").transform.position;
         joystick = FindObjectOfType<Joystick>();
         joybutton = FindObjectOfType<JoyButton>();
-        rb2d = GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>();
+        resetbtn = FindObjectOfType<Reset>();
+        rb2d =GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>();
         heroTransform = GameObject.FindWithTag("Player").transform;
         anim = GameObject.FindWithTag("Player").GetComponent<Animator>();
     }
@@ -64,6 +69,11 @@ public class MyJoystick : MonoBehaviour
                 Quaternion.Euler(heroTransform.position.x, heroTransform.position.y, angle));
         }
 
+        //reset logic
+        if (resetbtn.Pressed == true)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
 
         rb2d.velocity = new Vector2(0.0f, 0.0f);
     }
