@@ -6,13 +6,10 @@ public class Hitbox : MonoBehaviour
 {
     private Animator anim;
     private int hit = 0;
-    private bool dead;
-    private float damageTick;
 
     // Start is called before the first frame update
     void Start()
     {
-        dead = false;
         anim = GameObject.FindWithTag("Player").GetComponent<Animator>();
     }
 
@@ -45,7 +42,6 @@ public class Hitbox : MonoBehaviour
             }
             //Destroy(col.gameObject);
         }*/
-        damageTick = 0;
         if (col.gameObject.tag == "bossFastAttack")
         {
             PlayerHPManager.currentHP -= 5;
@@ -57,21 +53,8 @@ public class Hitbox : MonoBehaviour
         else if (col.gameObject.tag == "add")
         {
             PlayerHPManager.currentHP -= 20;
-            print("hit by add");
             KillMeter.currentKills += 1;
         }
-        /*currentHP -= damageTick;
-        if (currentHP < 0)
-        {
-            currentHP = 0;
-        }
-        if (currentHP == 0 && !dead)
-        {
-            dead = true;
-            Destroy(GameObject.Find("Canvas"));
-            anim.SetTrigger("Die");
-            
-        }*/
     }
 
 }

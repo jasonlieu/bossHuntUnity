@@ -5,7 +5,6 @@ using UnityEngine;
 public class BossActions : MonoBehaviour
 {
     private Vector2 playerPosition; 
-    private float projectileCDTimer;
     private float chargeTime;
     public GameObject bossFireball;
     public GameObject bossFastAttack;
@@ -16,7 +15,6 @@ public class BossActions : MonoBehaviour
     private float selectAttack;
     void Start()
     {
-        projectileCDTimer = 5;
         chargeTime = 0;
         inAnimation = false;
         currentAnimationTime = 0;

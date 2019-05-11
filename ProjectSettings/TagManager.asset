@@ -10,6 +10,8 @@ TagManager:
   - bossFastAttack
   - bossHP
   - add
+  - background
+  - addSpawner
   layers:
   - Default
   - TransparentFX

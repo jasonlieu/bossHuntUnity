@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5862251526379520922}
   m_Layer: 14
   m_Name: flyingAdd
-  m_TagString: Untagged
+  m_TagString: add
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
