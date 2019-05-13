@@ -48,12 +48,30 @@ public class MyJoystick : MonoBehaviour
 
         if (joystick.Horizontal > 0.1)
         {
-            rb2d.AddForce(Vector2.right * joystick.Horizontal * moveForce);
+            if (!grounded)
+            {
+                print("ran");
+                rb2d.AddForce(Vector2.right * joystick.Horizontal * 1f);
+            }
+            else
+            {
+                rb2d.AddForce(Vector2.right * joystick.Horizontal * moveForce);
+            }
         }
         if (joystick.Horizontal < -0.1)
         {
-            rb2d.AddForce(Vector2.right * joystick.Horizontal * moveForce);
+            if (!grounded)
+            {
+                print("ran");
+                rb2d.AddForce(Vector2.right * joystick.Horizontal * 1f);
+            }
+            else
+            {
+                rb2d.AddForce(Vector2.right * joystick.Horizontal * moveForce);
+            }
         }
+
+
 
         if (joystick.Horizontal < 0 && !facingLeft)
             Flip();
@@ -82,10 +100,10 @@ public class MyJoystick : MonoBehaviour
         {
             rb2d.velocity = new Vector2(0.0f, 0.0f);
         }
-        else
-        {
-            rb2d.velocity = new Vector2(0.0f, -15.0f);
-        }
+        //else
+        //{
+        //    rb2d.velocity = new Vector2(0.0f, f);
+        //}
     }
 
 

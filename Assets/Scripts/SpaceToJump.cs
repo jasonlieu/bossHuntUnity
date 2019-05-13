@@ -32,7 +32,7 @@ public class SpaceToJump : MonoBehaviour
         if (jump)
         {
             //anim.SetTrigger("Jump");
-            rb2d.AddForce(new Vector2(0f, 1350f));
+            rb2d.AddForce(new Vector2(0f, 1000f));
             jump = false;
         }
     }
