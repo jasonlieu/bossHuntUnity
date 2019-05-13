@@ -16,6 +16,7 @@ public class Add : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        rb2d.freezeRotation = true;
         timeAfterLastHop = 0;
         facingLeft = true;
     }

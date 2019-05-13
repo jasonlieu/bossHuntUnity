@@ -6,12 +6,15 @@ public class KillMeter : MonoBehaviour
 {
     public static float currentKills;
     private float oneKillScale;
-    private float killsNeeded;
+    public static float killsNeeded;
+    public GameObject boss;
+    private bool transitionDone;
     void Start()
     {
-        killsNeeded = 5f; //change to how many kills before boss
+        killsNeeded = 3f; //change to how many kills before boss
         oneKillScale = transform.localScale.x / killsNeeded;
         currentKills = 0;
+        transitionDone = false;
     }
 
     // Update is called once per frame
@@ -24,7 +27,12 @@ public class KillMeter : MonoBehaviour
         transform.localScale = new Vector3(currentKills * oneKillScale, 1);
         if(currentKills == killsNeeded)
         {
-            DestoryAddsAndAddSpawners();
+            if (!transitionDone)
+            {
+                DestoryAddsAndAddSpawners();
+                SpawnBoss();
+                transitionDone = true;
+            }
         }
     }
     void DestoryAddsAndAddSpawners()
@@ -39,5 +47,9 @@ public class KillMeter : MonoBehaviour
         {
             Destroy(add);
         }
+    }
+    void SpawnBoss()
+    {
+        Instantiate(boss, new Vector3(15f,0,5f), Quaternion.identity);
     }
 }

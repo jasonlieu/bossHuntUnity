@@ -18,6 +18,7 @@ public class FlyingAdd : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        rb2d.freezeRotation = true;
         facingLeft = true;
         floatSwitchTime = 2f;
         timeElapsed = 0;
