@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class FlyingAddShoot : MonoBehaviour
 {
-    private Vector2 playerPosition;
     private float shotCoolDown;
     private float timeElapsed;
-    public GameObject bossFastAttack;
+    public GameObject flyingAddAttack;
     void Start()
     {
         shotCoolDown = Random.Range(2f, 4f);
@@ -28,7 +27,6 @@ public class FlyingAddShoot : MonoBehaviour
 
     void ShootAtPlayer()
     {
-        playerPosition = GameObject.FindWithTag("Player").transform.position;
-        Instantiate(bossFastAttack, transform.position, Quaternion.identity);
+        Instantiate(flyingAddAttack, transform.position, Quaternion.identity);
     }
 }

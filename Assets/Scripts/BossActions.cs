@@ -63,12 +63,10 @@ public class BossActions : MonoBehaviour
     }
     void ShootProjectile()
     {
-        playerPosition = GameObject.FindWithTag("Player").transform.position;
         Instantiate(bossFireball, transform.position, Quaternion.identity);
     }
     void ShootFastProjectile()
     {
-        playerPosition = GameObject.FindWithTag("Player").transform.position;
         Instantiate(bossFastAttack, transform.position, Quaternion.identity);
     }
 }

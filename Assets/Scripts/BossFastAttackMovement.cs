@@ -5,8 +5,10 @@ using UnityEngine;
 public class BossFastAttackMovement : MonoBehaviour
 {
     public float speed;
+    public GameObject explosionTrap;
     private Rigidbody2D rigidBody;
     private Vector2 playerPosition;
+    private float groundY;
     private float currentDelayTime;
     private float totalDelayDuration;
     private float maxExplosionDuration;
@@ -23,6 +25,7 @@ public class BossFastAttackMovement : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.velocity = Vector2.up * speed;
         transform.localScale = new Vector3(0, 0, 0);
+        groundY = GameObject.FindWithTag("Ground").transform.position.y + GameObject.FindWithTag("Ground").transform.localScale.y / 2f;
     }
     void Update()
     {
@@ -35,9 +38,9 @@ public class BossFastAttackMovement : MonoBehaviour
         else
         {
             speed = 0.4f;
-            transform.position = Vector3.MoveTowards(transform.position, playerPosition, speed);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector2(playerPosition.x, groundY), speed);
         }
-        if (playerPosition.y + 0.05 >= transform.position.y)
+        if (groundY >= transform.position.y && !exploding)
         {
             exploding = true;
         }
@@ -49,6 +52,13 @@ public class BossFastAttackMovement : MonoBehaviour
         if(currentExplosionDuration > maxExplosionDuration)
         {
             Destroy(this.gameObject);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            exploding = true;
         }
     }
 }

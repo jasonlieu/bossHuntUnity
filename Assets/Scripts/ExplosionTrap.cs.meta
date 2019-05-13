@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 3f52d7c56729741c68e454da2af9c2cc
+guid: b3ca8b87dc4da42978362ea6dfa6c87a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - flyingAddAttack: {fileID: 3071900972387832473, guid: bde57669a2a494e0e825f1c0f69196e7,
-      type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
