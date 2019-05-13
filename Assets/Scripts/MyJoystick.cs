@@ -36,6 +36,8 @@ public class MyJoystick : MonoBehaviour
         rb2d = GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>();
         heroTransform = GameObject.FindWithTag("Player").transform;
         anim = GameObject.FindWithTag("Player").GetComponent<Animator>();
+
+
     }
 
     // Update is called once per frame
@@ -43,6 +45,10 @@ public class MyJoystick : MonoBehaviour
     {
 
         grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+        if ((joystick.Vertical == 1) && grounded)
+        {
+            jump = true;
+        }
         //joystick movement
         anim.SetFloat("Speed", Mathf.Abs(joystick.Horizontal));
 
@@ -50,7 +56,6 @@ public class MyJoystick : MonoBehaviour
         {
             if (!grounded)
             {
-                print("ran");
                 rb2d.AddForce(Vector2.right * joystick.Horizontal * 1f);
             }
             else
@@ -62,12 +67,24 @@ public class MyJoystick : MonoBehaviour
         {
             if (!grounded)
             {
-                print("ran");
                 rb2d.AddForce(Vector2.right * joystick.Horizontal * 1f);
             }
             else
             {
                 rb2d.AddForce(Vector2.right * joystick.Horizontal * moveForce);
+            }
+        }
+        
+
+        if (joystick.Vertical == 1)
+        {
+            print(joystick.Vertical);
+            print(jump);
+            if (jump)
+            {
+                //anim.SetTrigger("Jump");
+                rb2d.AddForce(new Vector2(0f, 1000f));
+                jump = false;
             }
         }
 
@@ -100,10 +117,6 @@ public class MyJoystick : MonoBehaviour
         {
             rb2d.velocity = new Vector2(0.0f, 0.0f);
         }
-        //else
-        //{
-        //    rb2d.velocity = new Vector2(0.0f, f);
-        //}
     }
 
 
