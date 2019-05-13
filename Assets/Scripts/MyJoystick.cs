@@ -1,17 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MyJoystick : MonoBehaviour
 {
     [HideInInspector] public bool facingLeft = true;
+    [HideInInspector] public bool jump = false;
 
     public float moveForce = 365f;
     public float maxSpeed = 5f;
+    public Transform groundCheck;
 
     public float speed;             //Floating point variable to store the player's movement speed.
     public GameObject arrowSprite;
     //private Vector2 bossPosition;
+    public GameObject hero;
+    private bool grounded = false;
 
     private Rigidbody2D rb2d;
     private Animator anim;
@@ -19,6 +24,7 @@ public class MyJoystick : MonoBehaviour
 
     protected Joystick joystick;
     protected JoyButton joybutton;
+    protected Reset resetbtn;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +32,7 @@ public class MyJoystick : MonoBehaviour
         //bossPosition = GameObject.FindWithTag("bossObject").transform.position;
         joystick = FindObjectOfType<Joystick>();
         joybutton = FindObjectOfType<JoyButton>();
+        resetbtn = FindObjectOfType<Reset>();
         rb2d = GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>();
         heroTransform = GameObject.FindWithTag("Player").transform;
         anim = GameObject.FindWithTag("Player").GetComponent<Animator>();
@@ -34,6 +41,8 @@ public class MyJoystick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
         //joystick movement
         anim.SetFloat("Speed", Mathf.Abs(joystick.Horizontal));
 
@@ -45,7 +54,6 @@ public class MyJoystick : MonoBehaviour
         {
             rb2d.AddForce(Vector2.right * joystick.Horizontal * moveForce);
         }
-   
 
         if (joystick.Horizontal < 0 && !facingLeft)
             Flip();
@@ -64,8 +72,20 @@ public class MyJoystick : MonoBehaviour
                 Quaternion.Euler(heroTransform.position.x, heroTransform.position.y, angle));
         */}
 
+        //reset logic
+        if (resetbtn.Pressed == true)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
 
-        rb2d.velocity = new Vector2(0.0f, 0.0f);
+        if (grounded)
+        {
+            rb2d.velocity = new Vector2(0.0f, 0.0f);
+        }
+        else
+        {
+            rb2d.velocity = new Vector2(0.0f, -15.0f);
+        }
     }
 
 
