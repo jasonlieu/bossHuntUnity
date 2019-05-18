@@ -11,7 +11,7 @@ public class AddSpawner : MonoBehaviour
     private float maxDistanceAway;
     void Start()
     {
-        spawnCooldown = Random.Range(5f, 10f);
+        spawnCooldown = Random.Range(2f, 5f);
         maxDistanceAway = 15f;
         timeElapsed = 0;
     }

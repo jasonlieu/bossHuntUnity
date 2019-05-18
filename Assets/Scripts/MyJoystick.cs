@@ -51,7 +51,6 @@ public class MyJoystick : MonoBehaviour
         }
         //joystick movement
         anim.SetFloat("Speed", Mathf.Abs(joystick.Horizontal));
-
         if (joystick.Horizontal > 0.1)
         {
             if (!grounded)
