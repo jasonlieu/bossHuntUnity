@@ -13,8 +13,14 @@ public class BossActions : MonoBehaviour
     private float timeBetweenAttacks;
     private float attackDuration;
     private float selectAttack;
+
+    private Rigidbody2D rb2d;
+
     void Start()
     {
+        rb2d = GetComponent<Rigidbody2D>();
+        rb2d.freezeRotation = true;
+        rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
         chargeTime = 0;
         inAnimation = false;
         currentAnimationTime = 0;

@@ -27,9 +27,9 @@ public class FingerHitbox : MonoBehaviour
             Destroy(col.gameObject);
             KillMeter.currentKills += 1;
         }
-        //else if (col.gameObject.tag == "bossObject")
-        //{
-        //    KillMeter.currentKills -= 1;
-        //}
+        else if (col.gameObject.tag == "bossObject")
+        {
+            KillMeter.currentKills -= 1;
+        }
     }
 }

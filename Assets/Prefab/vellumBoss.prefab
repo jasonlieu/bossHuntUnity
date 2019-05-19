@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 6003539094427133448}
   - component: {fileID: 5600426647611675551}
   - component: {fileID: 5738168437241290316}
-  m_Layer: 16
+  - component: {fileID: 546179857942641477}
+  m_Layer: 14
   m_Name: vellumBoss
   m_TagString: bossObject
   m_Icon: {fileID: 0}
@@ -179,6 +180,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2.52}
   m_EdgeRadius: 0
+--- !u!50 &546179857942641477
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2237586505701195400}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6018269383798715610
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6018269383798715609}
   - component: {fileID: 6018269383798715608}
-  m_Layer: 16
+  m_Layer: 14
   m_Name: bossVellumSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
