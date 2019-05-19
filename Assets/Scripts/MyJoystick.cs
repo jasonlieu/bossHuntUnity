@@ -23,7 +23,6 @@ public class MyJoystick : MonoBehaviour
     private Transform heroTransform;
 
     protected Joystick joystick;
-    protected JoyButton joybutton;
     protected Reset resetbtn;
 
     // Start is called before the first frame update
@@ -31,7 +30,6 @@ public class MyJoystick : MonoBehaviour
     {
         //bossPosition = GameObject.FindWithTag("bossObject").transform.position;
         joystick = FindObjectOfType<Joystick>();
-        joybutton = FindObjectOfType<JoyButton>();
         resetbtn = FindObjectOfType<Reset>();
         rb2d = GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>();
         heroTransform = GameObject.FindWithTag("Player").transform;
@@ -93,18 +91,6 @@ public class MyJoystick : MonoBehaviour
             Flip();
         else if (joystick.Horizontal > 0 && facingLeft)
             Flip();
-
-        //firing logic
-        if (joybutton.Pressed == true)
-        {
-            /*float angle = Vector2.Angle(bossPosition, heroTransform.position);
-            /if (heroTransform.position.x > bossPosition.x)
-            {
-                angle *= -1;
-            }
-            GameObject shot = Instantiate(arrowSprite, heroTransform.position,
-                Quaternion.Euler(heroTransform.position.x, heroTransform.position.y, angle));
-        */}
 
         //reset logic
         if (resetbtn.Pressed == true)

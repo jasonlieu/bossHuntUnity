@@ -29,7 +29,7 @@ public class PlayerHPManager : MonoBehaviour
         {
             dead = true;
             //uncomment before final copy
-            //Destroy(GameObject.Find("Fixed Joystick"));
+            Destroy(GameObject.Find("Fixed Joystick"));
             anim.SetTrigger("Die");
         }
         if (!dead && currentHP < maxHP)
