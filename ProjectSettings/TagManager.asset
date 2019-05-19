@@ -15,6 +15,7 @@ TagManager:
   - Ground
   - stageOneLight
   - fingerHB
+  - text
   layers:
   - Default
   - TransparentFX

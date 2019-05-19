@@ -11,18 +11,26 @@ public class KillMeter : MonoBehaviour
     public GameObject boss;
     private bool transitionDone;
     private bool inBossFight;
+    public Text scoreText;
+    public static int score;
+
     void Start()
     {
-        killsNeeded = 50f; //change to how many kills before boss
+        scoreText = FindObjectOfType<Text>();
+        killsNeeded = 10f; //change to how many kills before boss
         oneKillScale = transform.localScale.x / killsNeeded;
         currentKills = 0;
         transitionDone = false;
         inBossFight = false;
+        score = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        scoreText.text = "Score: \n" + score.ToString();
+
         if (!inBossFight)
         {
 
@@ -42,7 +50,9 @@ public class KillMeter : MonoBehaviour
             //currentKills -= 0.01f;
             if(currentKills == 0)
             {
+                score += 1000;
                 Destroy(GameObject.FindWithTag("bossObject"));
+                inBossFight = false;
             }
         }
         transform.localScale = new Vector3(currentKills * oneKillScale, 1);
@@ -50,6 +60,7 @@ public class KillMeter : MonoBehaviour
         {
             currentKills = killsNeeded;
         }
+
     }
     void DestoryAddsAndAddSpawners()
     {

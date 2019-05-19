@@ -75,8 +75,6 @@ public class MyJoystick : MonoBehaviour
 
         if (joystick.Vertical == 1)
         {
-            print(joystick.Vertical);
-            print(jump);
             if (jump)
             {
                 //anim.SetTrigger("Jump");
