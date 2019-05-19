@@ -11,9 +11,9 @@ public class PlayerHPManager : MonoBehaviour
     private bool dead;
     void Start()
     {
-        maxHP = 100f;
+        maxHP = 200f;
         oneHPScale = transform.localScale.x / maxHP;
-        currentHP = 100;
+        currentHP = maxHP;
         dead = false;
         anim = GameObject.FindWithTag("Player").GetComponent<Animator>();
     }
@@ -29,12 +29,12 @@ public class PlayerHPManager : MonoBehaviour
         {
             dead = true;
             //uncomment before final copy
-            Destroy(GameObject.Find("Fixed Joystick"));
+            //Destroy(GameObject.Find("Fixed Joystick"));
             anim.SetTrigger("Die");
         }
         if (!dead && currentHP < maxHP)
         {
-            currentHP += 0.1f;
+            currentHP += 1f;
         }
         transform.localScale = new Vector3(currentHP * oneHPScale, 1);
     }

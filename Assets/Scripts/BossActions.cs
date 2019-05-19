@@ -13,7 +13,6 @@ public class BossActions : MonoBehaviour
     private float timeBetweenAttacks;
     private float attackDuration;
     private float selectAttack;
-
     private Rigidbody2D rb2d;
 
     void Start()
@@ -21,6 +20,7 @@ public class BossActions : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         rb2d.freezeRotation = true;
         rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
+        playerPosition = GameObject.FindWithTag("Player").transform.position;
         chargeTime = 0;
         inAnimation = false;
         currentAnimationTime = 0;
@@ -31,36 +31,39 @@ public class BossActions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(chargeTime > timeBetweenAttacks) //select an attack every timeBetweenAttacks seconds
+        if (PlayerHPManager.currentHP > 0)
         {
-            chargeTime = 0;
-            inAnimation = true;
-            currentAnimationTime = 0;
-            selectAttack = Random.value; //temp
-        }
-        if (inAnimation)
-        {
-            if(currentAnimationTime > attackDuration)
+            if (chargeTime > timeBetweenAttacks) //select an attack every timeBetweenAttacks seconds
             {
-                inAnimation = false;
+                chargeTime = 0;
+                inAnimation = true;
+                currentAnimationTime = 0;
+                selectAttack = Random.value; //temp
             }
-            else
+            if (inAnimation)
             {
-                if (selectAttack < 0.2)
+                if (currentAnimationTime > attackDuration)
                 {
-                    ShootProjectile();
+                    inAnimation = false;
                 }
                 else
                 {
-                    ShootFastProjectile();
-                    currentAnimationTime += attackDuration;
+                    if (selectAttack < 0.2)
+                    {
+                        ShootProjectile();
+                    }
+                    else
+                    {
+                        ShootFastProjectile();
+                        currentAnimationTime += attackDuration;
+                    }
+                    currentAnimationTime += Time.deltaTime;
                 }
-                currentAnimationTime += Time.deltaTime;
             }
-        }
-        else
-        {
-            chargeTime += Time.deltaTime;
+            else
+            {
+                chargeTime += Time.deltaTime;
+            }
         }
     }
     void AOEWarning()
@@ -69,10 +72,17 @@ public class BossActions : MonoBehaviour
     }
     void ShootProjectile()
     {
-        Instantiate(bossFireball, transform.position, Quaternion.identity);
+        playerPosition = GameObject.FindWithTag("Player").transform.position;
+        if (transform.position.x - playerPosition.x < 15) {
+            Instantiate(bossFireball, transform.position, Quaternion.identity);
+        }
     }
     void ShootFastProjectile()
     {
-        Instantiate(bossFastAttack, transform.position, Quaternion.identity);
+        playerPosition = GameObject.FindWithTag("Player").transform.position;
+        if (transform.position.x - playerPosition.x < 15)
+        {
+            Instantiate(bossFastAttack, transform.position, Quaternion.identity);
+        }
     }
 }

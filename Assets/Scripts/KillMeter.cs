@@ -13,7 +13,7 @@ public class KillMeter : MonoBehaviour
     private bool inBossFight;
     void Start()
     {
-        killsNeeded = 3f; //change to how many kills before boss
+        killsNeeded = 50f; //change to how many kills before boss
         oneKillScale = transform.localScale.x / killsNeeded;
         currentKills = 0;
         transitionDone = false;
