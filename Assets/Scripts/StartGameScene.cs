@@ -9,4 +9,12 @@ public class StartGameScene : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    public void SwitchTutorial()
+    {
+        SceneManager.LoadScene(2);
+    }
+    public void SwitchOutOfTutorial()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

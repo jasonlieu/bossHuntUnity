@@ -25,12 +25,12 @@ public class FingerHitbox : MonoBehaviour
         if (col.gameObject.tag == "add")
         {
             Destroy(col.gameObject);
-            KillMeter.currentKills += 1;
+            KillMeter.currentKills += 10;
             KillMeter.score += 100; 
         }
         else if (col.gameObject.tag == "bossObject")
         {
-            KillMeter.currentKills -= 1;
+            KillMeter.currentKills -= 10;
         }
     }
 }

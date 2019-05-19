@@ -281,7 +281,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 44878652}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2cf3482cf3344875ac0d9377749f93a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a49ce69a2daa46c685556790deff65e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &84708738
@@ -437,12 +437,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 101620640}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd0f13eeacba403892707fecc24c796, type: 3}
+  m_Script: {fileID: 11500000, guid: e9ca3b6e7456145a49dfb9f02c846d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boss: {fileID: 2237586505701195400, guid: 3324d52a9a9134d56ac3cfaf18ca1fcb, type: 3}
-  scoreText: {fileID: 0}
-  spawnerHUB: {fileID: 0}
+  boss: {fileID: 2237586505701195400, guid: 0373ff93ae0cd4d0698612ea2f3cee6a, type: 3}
+  scoreText: {fileID: 1492315809}
+  spawnerHUB: {fileID: 621214335}
 --- !u!1 &106750347
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,6 +1145,12 @@ Transform:
   m_Father: {fileID: 2089866326}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &348960288 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4665856644905389439, guid: 210d6bed05e4fa344b436251de056d96,
+    type: 3}
+  m_PrefabInstance: {fileID: 372459303}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &372459303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3126,7 +3132,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1285066115}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 484e37f7889b983488ce5f01efc86d5c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e5fa2ccbc86c4730bd0cafb994b15f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   facingLeft: 1
@@ -3137,7 +3143,7 @@ MonoBehaviour:
   speed: 0
   arrowSprite: {fileID: 4186476379711716767, guid: 22215cc55b4f14bb3908ece6fa16f7aa,
     type: 3}
-  hero: {fileID: 0}
+  hero: {fileID: 348960288}
 --- !u!114 &1285066117
 MonoBehaviour:
   m_ObjectHideFlags: 0

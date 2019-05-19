@@ -13,18 +13,17 @@ public class KillMeter : MonoBehaviour
     private bool inBossFight;
     public Text scoreText;
     public static int score;
-    public GameObject spawnerHUB; 
+    public GameObject spawnerHUB;
 
     void Start()
     {
         scoreText = FindObjectOfType<Text>();
-        killsNeeded = 10f; //change to how many kills before boss
+        killsNeeded = 100f; //change to how many kills before boss
         oneKillScale = transform.localScale.x / killsNeeded;
         currentKills = 0;
         transitionDone = false;
         inBossFight = false;
         score = 0;
-
         spawnerHUB = GameObject.FindWithTag("spawnerHUB");
     }
 
@@ -59,6 +58,8 @@ public class KillMeter : MonoBehaviour
                 inBossFight = false;
                 transitionDone = false;
                 spawnerHUB.SetActive(true);
+                GetComponent<Image>().color = new Color(1,1,1);
+
             }
         }
         transform.localScale = new Vector3(currentKills * oneKillScale, 1);
