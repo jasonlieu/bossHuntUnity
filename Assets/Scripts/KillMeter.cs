@@ -13,6 +13,7 @@ public class KillMeter : MonoBehaviour
     private bool inBossFight;
     public Text scoreText;
     public static int score;
+    public GameObject spawnerHUB; 
 
     void Start()
     {
@@ -23,6 +24,8 @@ public class KillMeter : MonoBehaviour
         transitionDone = false;
         inBossFight = false;
         score = 0;
+
+        spawnerHUB = GameObject.FindWithTag("spawnerHUB");
     }
 
     // Update is called once per frame
@@ -39,7 +42,8 @@ public class KillMeter : MonoBehaviour
                 if (!transitionDone)
                 {
                     inBossFight = true;
-                    DestoryAddsAndAddSpawners();
+                    DestoryAdds();
+                    spawnerHUB.SetActive(false);
                     SpawnBoss();
                     transitionDone = true;
                 }
@@ -53,6 +57,8 @@ public class KillMeter : MonoBehaviour
                 score += 1000;
                 Destroy(GameObject.FindWithTag("bossObject"));
                 inBossFight = false;
+                transitionDone = false;
+                spawnerHUB.SetActive(true);
             }
         }
         transform.localScale = new Vector3(currentKills * oneKillScale, 1);
@@ -62,19 +68,15 @@ public class KillMeter : MonoBehaviour
         }
 
     }
-    void DestoryAddsAndAddSpawners()
+    void DestoryAdds()
     {
-        GameObject[] spawners = GameObject.FindGameObjectsWithTag("addSpawner");
-        foreach (GameObject spawner in spawners)
-        {
-            Destroy(spawner);
-        }
         GameObject[] adds = GameObject.FindGameObjectsWithTag("add");
         foreach (GameObject add in adds)
         {
             Destroy(add);
         }
     }
+
     void SpawnBoss()
     {
         Instantiate(boss, new Vector3(15f, 0, 5f), Quaternion.identity);

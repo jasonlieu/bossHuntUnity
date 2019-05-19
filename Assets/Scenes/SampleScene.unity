@@ -441,7 +441,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boss: {fileID: 2237586505701195400, guid: 3324d52a9a9134d56ac3cfaf18ca1fcb, type: 3}
-  instruction: {fileID: 0}
+  scoreText: {fileID: 0}
+  spawnerHUB: {fileID: 0}
 --- !u!1 &106750347
 GameObject:
   m_ObjectHideFlags: 0
@@ -1926,7 +1927,7 @@ GameObject:
   - component: {fileID: 621214336}
   m_Layer: 0
   m_Name: spawners
-  m_TagString: Untagged
+  m_TagString: spawnerHUB
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

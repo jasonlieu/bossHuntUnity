@@ -21,26 +21,11 @@ public class LightEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (KillMeter.currentKills == KillMeter.killsNeeded)
+        staggerTimeElasped += Time.deltaTime;
+        if (staggerTimeElasped > staggerTime)
         {
-            if (timeElasped < growDuration)
-            {
-                transform.localScale += new Vector3(0.05f, 0.05f, 0f);
-                timeElasped += Time.deltaTime;
-            }
-            else
-            {
-                Destroy(this.gameObject);
-            }
-        }
-        else
-        {
-            staggerTimeElasped += Time.deltaTime;
-            if (staggerTimeElasped > staggerTime)
-            {
-                Stagger();
-                staggerTimeElasped = 0;
-            }
+            Stagger();
+            staggerTimeElasped = 0;
         }
     }
     void Stagger()

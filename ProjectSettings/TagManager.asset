@@ -16,6 +16,7 @@ TagManager:
   - stageOneLight
   - fingerHB
   - text
+  - spawnerHUB
   layers:
   - Default
   - TransparentFX
